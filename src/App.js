@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import MyApp from "./components/MyApp";
+import { useState } from "react";
 
 function App() {
+  const [search, setSearch] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2 style={{marginLeft:"50px"}}>Todo table</h2>
+      <div className="search-box">
+        <label htmlFor="search">Type to search</label>
+        <input id="search" onChange={(e) => setSearch(e.target.value)} type="search" placeholder="search title" />
+      </div>
+      <MyApp search={search} setSearch={setSearch} />
     </div>
   );
 }
